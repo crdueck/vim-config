@@ -157,24 +157,10 @@ cnoremap cwd lcd %:p:h
 """""""""""""
 vnoremap <leader>s :w !curl -sF 'sprunge=<-' http://sprunge.us<CR>
 
-" Insert mode
-"""""""""""""
-" filename completion
-inoremap <C-f> <C-x><C-f>
-" line completetion
-inoremap <C-l> <C-x><C-l>
-" omni completion
-inoremap <C-x> <C-x><C-o>
-
 " Normal mode
 """""""""""""
 " jump between parentheses with <tab>
 nnoremap <tab> %
-
-" change tabs with <left> and <right>
-nnoremap <silent> <left>  :bprev<CR>
-nnoremap <silent> <right> :bnext<CR>
-nnoremap <silent> <down>  :buffer #<CR>
 
 " save 1,000,000 keystrokes
 nnoremap ; :
@@ -216,9 +202,6 @@ nnoremap Q @q
 
 nnoremap <silent> <space> :nohlsearch<CR>
 
-" puts blank line below cursor
-"nnoremap <silent> <CR> :put=''<CR>
-
 " move line up/down
 nnoremap <silent> <leader>j :m+<CR>
 nnoremap <silent> <leader>k :m-2<CR>
@@ -253,7 +236,6 @@ autocmd InsertLeave * set nopaste
 augroup ft_c
     autocmd!
     autocmd FileType c,cpp setlocal foldmethod=syntax
-    autocmd FileType c,cpp nnoremap <F4> :!make<CR>
 augroup END
 
 augroup ft_glsl
