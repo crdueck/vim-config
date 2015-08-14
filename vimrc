@@ -7,20 +7,22 @@ filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'gmarik/Vundle.vim'
+
 Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ervandew/supertab'
-Plugin 'gmarik/Vundle.vim'
+Plugin 'fatih/vim-go'
 Plugin 'honza/vim-snippets'
 Plugin 'itchyny/lightline.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 
 call vundle#end()
@@ -147,7 +149,7 @@ let g:ycm_key_list_previous_completion=['<C-p>']
 
 " Command mode
 """"""""""""""
-cnoremap w!! w !sudo tee % >/dev/null
+cnoremap ww w !sudo tee % >/dev/null
 cnoremap qq qa!
 cnoremap cwd lcd %:p:h
 
