@@ -172,13 +172,13 @@ nnoremap ' `
 nnoremap ` '
 
 " autoindent entire file
-nnoremap == :call Preserve("normal gg=G")<CR>
+nnoremap <leader>= :call Preserve("normal gg=G")<CR>
 " autoformat entire file
-nnoremap =q :call Preserve("normal gggqG")<CR>
+nnoremap <leader>q :call Preserve("normal gggqG")<CR>
 " remove multiple lines of whitespace
-nnoremap =l :call Preserve(":v/./,/./-j")<CR>
+nnoremap <leader>l :call Preserve(":v/./,/./-j")<CR>
 " remove trailing whitespace
-nnoremap =w :call Preserve("%s/\\s\\+$//e")<CR>
+nnoremap <leader>w :call Preserve("%s/\\s\\+$//e")<CR>
 
 " go to older change
 nnoremap g; g;zz
