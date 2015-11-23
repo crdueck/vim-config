@@ -342,7 +342,7 @@ if has('gui_running')
     set guioptions=
     set guiheadroom=0
     set guicursor+=ablinkon0
-    set guifont=Inconsolata\ 11
+    set guifont=Source Code Pro
 
     highlight Cursor guifgback guibgwite
 
