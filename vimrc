@@ -11,7 +11,6 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ervandew/supertab'
@@ -202,10 +201,6 @@ nnoremap Q @q
 
 nnoremap <silent> <space> :nohlsearch<CR>
 
-" move line up/down
-nnoremap <silent> <leader>j :m+<CR>
-nnoremap <silent> <leader>k :m-2<CR>
-
 if &diff
     " last/next diff
     nnoremap <leader>p [czz
@@ -232,11 +227,6 @@ noremap <leader>si :call <SID>SynStack()<CR>
 " Autocommands
 """"""""""""""
 autocmd InsertLeave * set nopaste
-
-augroup ft_c
-    autocmd!
-    autocmd FileType c,cpp setlocal foldmethod=syntax
-augroup END
 
 augroup ft_glsl
     autocmd!
@@ -268,34 +258,14 @@ augroup ft_markdown
     autocmd BufNewFile,BufRead *.md set filetype=markdown
 augroup END
 
-augroup ft_scheme
-    autocmd!
-    autocmd BufNewFile,BufRead *.rkt set filetype=scheme
-    autocmd FileType scheme setlocal shiftwidth=2 tabstop=2
-    autocmd FileType scheme nnoremap <F4> :!racket %<CR>
-augroup END
-
-augroup ft_agda
-    autocmd!
-    autocmd BufNewFile,BufRead *.agda set filetype=agda
-augroup END
-
-augroup ft_scala
-    autocmd!
-    autocmd FileType scala setlocal shiftwidth=2 tabstop=2
-augroup END
-
 augroup ft_tex
     autocmd!
     autocmd BufNewFile,BufRead *.tex set filetype=tex
     autocmd FileType tex nnoremap <F4> :!pdflatex %<CR>
-    autocmd FileType tex setlocal makeprg=make
     autocmd FileType tex setlocal commentstring=%\ %s
     autocmd FileType tex setlocal formatoptions+=t
     autocmd BufWrite tex :!pdflatex %<CR>
 augroup END
-
-autocmd BufNewFile,BufRead *.zsh-theme set filetype=zsh
 
 " Custom Functions
 """"""""""""""""""
@@ -320,14 +290,8 @@ endfunction
 " GViM settings
 """""""""""""""
 if has('gui_running')
-    colorscheme solarized
     set guioptions=
     set guiheadroom=0
-    set guicursor+=ablinkon0
-    set guifont=Source Code Pro
-
-    highlight Cursor guifgback guibgwite
 
     autocmd FocusLost * silent! wa
-    autocmd VimResized * wincmd =
 endif
