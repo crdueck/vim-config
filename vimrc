@@ -13,11 +13,12 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
 Plugin 'honza/vim-snippets'
 Plugin 'itchyny/lightline.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
@@ -122,6 +123,9 @@ set nowrap
 let g:ctrlp_use_caching = 1
 let g:ctrlp_cache_dir = "~/.cache/ctrlp"
 let g:ctrlp_custom_ignore = { "dir": "dist" }
+
+" easy-align
+vnoremap <Enter> <Plug>(EasyAlign)
 
 " lightline
 set laststatus=2
