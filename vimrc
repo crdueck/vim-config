@@ -127,6 +127,16 @@ let g:ctrlp_custom_ignore = { "dir": "dist" }
 " easy-align
 vnoremap <Enter> <Plug>(EasyAlign)
 
+" fugitive
+nnoremap <leader>gc :Gcommit -v -q<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <leader>go :Gcheckout<Space>
+nnoremap <leader>gs :Gstatus<CR>
+
+nnoremap <leader>g- :silent Git stash<CR>:e<CR>
+nnoremap <leader>g+ :silent Git stash pop<CR>:e<CR>
+
 " lightline
 set laststatus=2
 let g:lightline = { 'colorscheme': 'solarized' }
@@ -135,7 +145,7 @@ let g:lightline = { 'colorscheme': 'solarized' }
 let g:SuperTabDefaultCompletionType='<C-n>'
 
 " tagbar
-noremap <silent> <leader>t :TagbarToggle<CR>
+noremap <silent> <leader>v :TagbarToggle<CR>
 let g:tagbar_autofocus=1
 let g:tagbar_compact=1
 let g:tagbar_foldlevel=0
@@ -207,13 +217,12 @@ nnoremap <silent> <space> :nohlsearch<CR>
 
 if &diff
     " last/next diff
-    nnoremap <leader>p [czz
-    nnoremap <leader>n ]czz
+    nnoremap [c [czz
+    nnoremap ]c ]czz
 
-    nnoremap <leader>g :diffget<CR>
-    nnoremap <leader>o :diffoff!<CR>
-    nnoremap <leader>p :diffput<CR>
-    nnoremap <leader>u :diffupdate<CR>
+    nnoremap dg :diffget<CR>
+    nnoremap dp :diffput<CR>
+    nnoremap du :diffupdate<CR>
 endif
 
 " show last search results in quickfix window
@@ -242,7 +251,10 @@ augroup ft_haskell
     autocmd BufRead *.dump-simpl set filetype=haskell
     autocmd BufRead *.lhs set filetype=lhaskell
     autocmd BufRead *.hsc set filetype=lhaskell
-    autocmd FileType haskell,lhaskell nnoremap <F4> :!ghci %<CR>
+    autocmd FileType haskell nnoremap <F4> :!ghci %<CR>
+    autocmd FileType haskell nnoremap <leader>b :!cabal build
+    autocmd FileType haskell nnoremap <leader>r :!cabal repl
+    autocmd FileType haskell nnoremap <leader>t :!cabal test
     autocmd FileType haskell setlocal makeprg=cabal\ repl
 augroup END
 
@@ -255,6 +267,12 @@ augroup ft_python
     autocmd!
     autocmd FileType python nnoremap <F4> :!./%<CR>
     autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+augroup END
+
+augroup ft_javascript
+    autocmd!
+    autocmd FileType javascript nnoremap <leader>r :!npm start
+    autocmd FileType javascript nnoremap <leader>t :!npm test
 augroup END
 
 augroup ft_markdown
